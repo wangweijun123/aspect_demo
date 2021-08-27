@@ -105,8 +105,24 @@ public class ActivityAspect {
 
     @Around("execution( * com.hujiang.library.demo.AOPActivity.onCreate(..))")
     public void aopActivityAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
+        long startTime = System.currentTimeMillis();
         joinPoint.proceed();
 
-        Log.i("helloAOP", "aopActivityAdvice=aspect:::" + "------------>>>>>AOPActivity.onCreate");
+        Log.i("helloAOP", "aopActivityAdvice=aspect:::"
+                + "------------>>>>>AOPActivity.onCreate spend time:" + (System.currentTimeMillis() - startTime));
+    }
+
+//
+
+    @Around("execution( * com.hujiang.library.javaexeceptionlib.MyClass.exeception(..))")
+    public void catchExeception(ProceedingJoinPoint joinPoint) throws Throwable {
+        long startTime = System.currentTimeMillis();
+        try {
+            joinPoint.proceed();
+        } catch (ArithmeticException ex) {
+            Log.i("helloAOP", ""+ex.getLocalizedMessage());
+        }
+        Log.i("helloAOP", "aopActivityAdvice=aspect:::"
+                + "------------>>>>>AOPActivity.onCreate spend time:" + (System.currentTimeMillis() - startTime));
     }
 }

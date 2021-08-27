@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.hujiang.library.javaexeceptionlib.MyClass;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
@@ -26,10 +27,18 @@ public class AOPActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // test
+        /*try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
 
         setContentView(R.layout.aop_activity_layout);
         ImageView imageView = (ImageView)findViewById(R.id.img_t);
         ImageLoader.getInstance().displayImage(url, imageView);
+
+        MyClass.exeception();
     }
 
     @Override

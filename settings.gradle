@@ -1,2 +1,3 @@
+include ':javaExeceptionlib'
 include ':app', ':library'
 rootProject.name = "AspectDemo2"
