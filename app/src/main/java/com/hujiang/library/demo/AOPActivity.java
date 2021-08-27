@@ -21,14 +21,15 @@ import com.nostra13.universalimageloader.core.ImageLoader;
  */
 @Route(path = "/com/AOPActivity")
 public class AOPActivity extends Activity {
-
+    String url = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201509%2F22%2F20150922121054_5PyBN.jpeg&refer=http%3A%2F%2Fimg3.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632668788&t=fb6ef37daa084606a959fd1dea8de191";
+//    String url = "http://cichang.hujiang.com/images/friendquan_share.png"; // 抛异常去捕获
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.aop_activity_layout);
         ImageView imageView = (ImageView)findViewById(R.id.img_t);
-        ImageLoader.getInstance().displayImage("http://cichang.hujiang.com/images/friendquan_share.png", imageView);
+        ImageLoader.getInstance().displayImage(url, imageView);
     }
 
     @Override
