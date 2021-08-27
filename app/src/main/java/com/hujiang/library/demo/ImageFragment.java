@@ -51,4 +51,8 @@ public class ImageFragment extends Fragment {
 
         return view;
     }
+
+    public void onMethodInImageFragment() {
+
+    }
 }

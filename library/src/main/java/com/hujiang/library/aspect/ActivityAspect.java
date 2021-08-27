@@ -83,7 +83,7 @@ public class ActivityAspect {
         Log.i("helloAOP", "greeterAdvice=aspect:::" + joinPoint.getSignature());
     }
 
-    @After("execution(* android.support.v4.app.Fragment.on**(..))")
+    @After("execution(* androidx.fragment.app.Fragment.on**(..))")
     public void fragmentMethod(JoinPoint joinPoint) throws Throwable {
         Log.i("helloAOP", "fragmentMethod=aspect:::" + joinPoint.getSignature());
     }
