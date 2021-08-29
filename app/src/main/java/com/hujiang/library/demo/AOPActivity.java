@@ -6,6 +6,8 @@
 package com.hujiang.library.demo;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -39,6 +41,8 @@ public class AOPActivity extends Activity {
         ImageLoader.getInstance().displayImage(url, imageView);
 
         MyClass.exeception();
+        SharedPreferences xxxx = getSharedPreferences("xxxx", Context.MODE_PRIVATE);
+        xxxx.edit().putInt("xxx", 12);
     }
 
     @Override

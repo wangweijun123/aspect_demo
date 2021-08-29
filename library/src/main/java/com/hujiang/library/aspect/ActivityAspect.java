@@ -125,4 +125,15 @@ public class ActivityAspect {
         Log.i("helloAOP", "aopActivityAdvice=aspect:::"
                 + "------------>>>>>AOPActivity.onCreate spend time:" + (System.currentTimeMillis() - startTime));
     }
+
+
+    /**
+     * 系统的class AspectJ 不能插入
+     * @param joinPoint
+     * @throws Throwable
+     */
+    /*@After("execution( * android.content.ContextWrapper.getSharedPreferences(..))")
+    public void hookSharedPreferences(ProceedingJoinPoint joinPoint) throws Throwable {
+        Log.i("helloAOP", "hookSharedPreferences:::");
+    }*/
 }
