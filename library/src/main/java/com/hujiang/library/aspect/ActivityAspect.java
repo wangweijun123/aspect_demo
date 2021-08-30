@@ -118,7 +118,7 @@ public class ActivityAspect {
     public void catchExeception(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         try {
-            joinPoint.proceed();
+            joinPoint.proceed();// 注意返回值
         } catch (ArithmeticException ex) {
             Log.i("helloAOP", ""+ex.getLocalizedMessage());
         }

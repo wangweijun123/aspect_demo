@@ -51,10 +51,13 @@ android {
 }
 
 aspectjx {
-    //指定只对含有关键字'universal-image-loader', 'AspectJX-Demo/library'的库进行织入扫描，忽略其他库，提升编译效率
-//    includeJarFilter 'universal-image-loader', 'AspectJX-Demo/library'
-//    excludeJarFilter '.jar'
-//    ajcArgs '-Xlint:warning'
+    // 2.0.0版本的 include,exclude通过package路径匹配class文件及
+    // jar文件，不再支持通过jar物理文件路径匹配的方式，比如：
+//    exclude 'android.support'
+
+//    exclude 'com.hujiang.library.javaexeceptionlib'
+    //关闭AspectJX功能
+//    enabled true
 }
 
 
