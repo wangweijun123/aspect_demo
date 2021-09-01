@@ -67,14 +67,14 @@ public class ActivityAspect {
      * @param joinPoint
      * @throws Throwable
      */
-    @After("within(@com.hujiang.library.aspect.TraceDelay *)")
+   /* @After("within(@com.hujiang.library.aspect.TraceDelay *)")
     public void onUi(JoinPoint joinPoint) throws Throwable {
         Log.i("helloAOP", "onUi=" + joinPoint.getSignature() + ",  Line=" + joinPoint.getSourceLocation().getLine());
-    }
+    }*/
 
     @After("execution(* android.app.Activity.on**(..))")
     public void onResumeMethod(JoinPoint joinPoint) throws Throwable {
-        Log.i("helloAOP", "Activity声明周期方法:" + joinPoint.getSignature()+ ",  Line=" + joinPoint.getSourceLocation().getLine());
+        Log.i("helloAOP", "Activity声明周期方法:this="+joinPoint.getThis()+" " + joinPoint.getSignature()+ ",  Line=" + joinPoint.getSourceLocation().getLine());
     }
 
     /////////// 方法签名:三要素 返回值 方法名  参数
@@ -93,9 +93,9 @@ public class ActivityAspect {
         Log.i("helloAOP", "aspectJavaDemoAdvice=aspect:::" + joinPoint.getSignature());
     }
 
-    @After("execution(* com.nostra13.universalimageloader.core.ImageLoader.displayImage(..))")
+    @After("call(* com.nostra13.universalimageloader.core.ImageLoader.displayImage(..))")
     public void aspectImageLoader(JoinPoint joinPoint) throws Throwable {
-        Log.i("helloAOP", "aspectImageLoader=aspect:::" + joinPoint.getSignature());
+        Log.i("helloAOP", "aspectImageLoader this:"+joinPoint.getThis()+" " + joinPoint.getSignature());
     }
 
     @After("execution(* com.hujiang.library.demo.NormalClass.**(..))")

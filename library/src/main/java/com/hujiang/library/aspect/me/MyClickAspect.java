@@ -4,11 +4,9 @@
  * 
  */
 
-package com.hujiang.library.aspect;
+package com.hujiang.library.aspect.me;
 
-import android.content.Context;
 import android.util.Log;
-import android.view.View;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -22,22 +20,13 @@ import org.aspectj.lang.annotation.Pointcut;
  * @version 1.0.0
  * @since 2016-03-04
  */
-
 @Aspect
-public class ViewClickAspect {
-
-    @After("execution(* android.view.View$OnClickListener.*(..))")
+public class MyClickAspect {
+    // 切点 call(* MyInterface.*(..))捕捉 MyInterface 定义的方法以及超类型定义的方法调用
+    @After("execution(* com.hujiang.library.demo.inter.MyInterface.*(..))")
     public void filterInterface(JoinPoint joinPoint) throws Throwable {
         Log.i("helloAOP", "filterInterface=aspect:::" + joinPoint.getSignature());
     }
 
-    @Pointcut("execution(* android.view.View$OnClickListener.onClick(android.view.View)) && args(view)")
-    public void viewOnClick(View view) {
-    }
-
-    @After("viewOnClick(view)")
-    public void onclick(View view) {
-        Log.i("helloAOP", "onclick:view:" + view);
-    }
 
 }

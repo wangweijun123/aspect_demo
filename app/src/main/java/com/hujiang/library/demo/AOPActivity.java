@@ -9,9 +9,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.hujiang.library.demo.inter.MyImpl;
+import com.hujiang.library.demo.inter.MyInterface;
 import com.hujiang.library.javaexeceptionlib.MyClass;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -39,6 +42,16 @@ public class AOPActivity extends Activity {
         setContentView(R.layout.aop_activity_layout);
         ImageView imageView = (ImageView)findViewById(R.id.img_t);
         ImageLoader.getInstance().displayImage(url, imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 埋点
+
+            }
+        });
+
+        MyInterface myInterface = new MyImpl();
+        myInterface.onClick();
 
         MyClass.exeception();
         SharedPreferences xxxx = getSharedPreferences("xxxx", Context.MODE_PRIVATE);
